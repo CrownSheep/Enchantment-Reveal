@@ -1,6 +1,8 @@
 package net.crownsheep.enchantment_reveal.mixin;
 
+import net.crownsheep.enchantment_reveal.EnchantmentReveal;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
@@ -57,7 +59,7 @@ public abstract class EnchantmentScreenMixin extends AbstractContainerScreen {
     }
 
     private List<EnchantmentInstance> getEnchantmentList(ItemStack p_39472_, int p_39473_, int p_39474_) {
-        this.random.setSeed((long) (enchantmentScreen.getMenu().getEnchantmentSeed() + p_39473_));
+        this.random.setSeed(enchantmentScreen.getMenu().getEnchantmentSeed() + p_39473_);
         List<EnchantmentInstance> list = EnchantmentHelper.selectEnchantment(this.random, p_39472_, p_39474_, false);
         if (p_39472_.is(Items.BOOK) && list.size() > 1) {
             list.remove(this.random.nextInt(list.size()));

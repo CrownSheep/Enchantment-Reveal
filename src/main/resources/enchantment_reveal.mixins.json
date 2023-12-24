@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "enchantment_reveal.refmap.json",
   "mixins": [
-
+    "PlayerMixin"
   ],
   "client": [
     "EnchantmentScreenMixin"
